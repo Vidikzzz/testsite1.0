@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция для Дениса</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Стили для скрытых ответов */
+        .answer {
+            display: none;
+            padding: 10px;
+            margin-top: 5px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            animation: fadeIn 0.5s;
+        }
+        .question {
+            cursor: pointer;
+            padding: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .question:hover {
+            background: linear-gradient(135deg, #e4e8eb 0%, #d1d5d8 100%);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <h1>Инструкция для Дениса</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О Денисе</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="other.html">Сюда не жамать</a>
+        </nav>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <section>
+            <div class="question" onclick="toggleAnswer('answer1')">
+                <h2>Что такое совещание в тимс по мнению Дениса?</h2>
+            </div>
+            <div id="answer1" class="answer animate__animated">
+                <p>Это идеальное время для туалета 🚽</p>
+            </div>
+
+            <div class="question" onclick="toggleAnswer('answer2')">
+                <h2>Что такое совещание в тимс по мнению Начальника Дениса?</h2>
+            </div>
+            <div id="answer2" class="answer animate__animated">
+                <p>Срать нельзя ❌ <span style="font-size: 0.8em;">(но Денис всё равно сходит)</span></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <p>© 2024 Мой сайт. Все права защищены, кроме Дениса во время совещания ТИМС.</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+                answer.classList.add('animate__fadeIn');
+                // Удаляем класс анимации после завершения, чтобы можно было повторить
+                setTimeout(() => {
+                    answer.classList.remove('animate__fadeIn');
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>

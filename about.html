@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О Денисе</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 80%;
+            animation: bounceIn 0.5s;
+        }
+        .close-btn {
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>О Денисе</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О Денисе</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="other.html">Сюда не жамать</a>
+        </nav>
+    </header>
+    <main>
+        <section class="animate__animated animate__fadeInUp">
+            <h2>Кто такой Денис?</h2>
+            
+            <!-- Картинка с подписью и адаптивностью -->
+            <figure>
+                <img src="chillgay.png" alt="Денис чиллит" style="
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                    margin: 15px 0;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    transition: transform 0.3s ease;
+                " onmouseover="this.style.transform='scale(1.03)'" 
+                onmouseout="this.style.transform='scale(1)'">
+                <figcaption style="
+                    font-style: italic;
+                    color: #666;
+                    margin-top: -10px;
+                ">Денис в своём стиле</figcaption>
+            </figure>
+            
+            <p>Чиловый парень, который любит гулять с девочками и какать.</p>
+            
+            <!-- Кнопка с вызовом модального окна -->
+            <button onclick="showModal()" style="
+                background: linear-gradient(135deg, #6e8efb, #a777e3);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" 
+            onmouseout="this.style.transform='scale(1)'">
+                Нажми меня
+            </button>
+        </section>
+    </main>
+    
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>Поздравляю, вас прокляли на понос 💩</h2>
+            <button class="close-btn" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+   
+
+    <script>
+        // Функции для работы модального окна
+        function showModal() {
+            document.getElementById('myModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+        
+        // Закрытие при клике вне окна
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

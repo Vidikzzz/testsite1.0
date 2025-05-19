@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Стили для скрытых ответов */
+        .answer {
+            display: none;
+            padding: 10px;
+            margin-top: 5px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .question {
+            cursor: pointer;
+            padding: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .question:hover {
+            background: linear-gradient(135deg, #e4e8eb 0%, #d1d5d8 100%);
+        }
+        .show-answer {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Контакты</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="about.html">О Денисе</a>
+            <a href="contacts.html">Контакты</a>
+            <a href="other.html">Сюда не жамать</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="question" onclick="toggleAnswer('answer1')">
+                <h2>Как следует общаться с денисом во время совещания тимс?</h2>
+            </div>
+            <div id="answer1" class="answer">
+                <p>По переписке</p>
+                <p>Задавая вопросы в войсе</p>
+                <p>Молча</p>
+            </div>
+
+            <div class="question" onclick="toggleAnswer('answer2')">
+                <h2>Как не следует общаться с денисом во время тимс совещания?</h2>
+            </div>
+            <div id="answer2" class="answer">
+                <p>После 12 разговор в кобинете <span style="font-size: 0.8em;">(окак)</span></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Мой сайт</p>
+    </footer>
+
+    <script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('show-answer');
+            
+            // Удаляем класс анимации после ее завершения
+            if (answer.classList.contains('show-answer')) {
+                answer.classList.add('animate__animated', 'animate__fadeIn');
+                setTimeout(() => {
+                    answer.classList.remove('animate__animated', 'animate__fadeIn');
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>
